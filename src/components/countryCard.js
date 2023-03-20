@@ -3,40 +3,80 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {  CardActionArea } from '@mui/material';
+import {CardActionArea} from '@mui/material';
+import {styled} from "@mui/material/styles";
+const Country =styled(Card)`
+    
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
 
+  @media (max-width: 576px) {
+    height: 27rem;
+    margin:0 1.5rem;
+    
+    
+  }
+    
+    
+`;
+const Flag =styled(CardMedia)`
+    object-fit: cover;
+    height: 9rem;
+  @media (max-width: 576px) {
+   height: 15rem;
+  }
+`;
+
+const SemiBold =styled(Typography)`
+    font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+`;
+const Bold =styled(Typography)`
+    font-weight: 800;
+  font-size: 1.05rem;
+`;
+const Light =styled(Typography)`
+    font-weight: 300;
+  font-size: 0.8rem;
+`;
 
 export default function countryCard (props) {
     return (
-        <Card>
+        <Country>
             <CardActionArea>
-                <CardMedia
+                <Flag
+
                     component="img"
-                    height="140"
+
                     image={props.img}
                     alt={props.name}
                 />
             </CardActionArea>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+            <CardContent sx={{mx:1}}  >
+
+
+
+                    <Bold sx={{mb:1}} noWrap  gutterBottom  component="div">
                         {props.name}
-                    </Typography>
+                    </Bold>
                     <Typography variant="body2" >
-                        <Typography> Population: <Typography component="span"
-                                                             color='text.secondary'>{props.population}</Typography></Typography>
-                        <Typography> Region: <Typography component="span"
-                                                             color='text.secondary'>{props.region}</Typography></Typography>
+                        <SemiBold > Population: <Light component="span"
+                                                             color='text.secondary'>{props.population}</Light></SemiBold>
+                        <SemiBold > Region: <Light  component="span"
+                                                             color='text.secondary'>{props.region}</Light></SemiBold>
 
-                        <Typography> Capital: <Typography component="span"
-                                                             color='text.secondary'>{props.capital}</Typography></Typography>
+                        <SemiBold > Capital: <Light  component="span"
+                                                             color='text.secondary'>{props.capital}</Light></SemiBold>
 
 
 
 
 
                     </Typography>
-                </CardContent>
 
-        </Card>
+
+            </CardContent>
+
+        </Country>
     );
 }

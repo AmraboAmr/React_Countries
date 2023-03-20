@@ -5,12 +5,16 @@ import {FaSearch} from "react-icons/fa";
 import {InputAdornment} from "@mui/material";
 const StyledTextField = styled(TextField)`
   width: 100%;
+  background-color: white;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  border-radius: 0.3rem;
+
 `;
 export default function SearchField() {
     return (
         <>
 
-            <StyledTextField  InputProps={{
+            <StyledTextField  placeholder={"Search for a country... "} sx={{ '.MuiOutlinedInput-notchedOutline': { border: 0 } }}  InputProps={{
                 startAdornment: (
                     <InputAdornment sx={{mx:2}} position="start">
                         <FaSearch />
