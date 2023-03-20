@@ -53,7 +53,7 @@ export default function FavList(){
                <Box componetn={'div'}>
                    <FavItem>
                        <div>
-                           <FavImg src={'/flags/us.svg'}/>
+                           <FavImg src={'./React_Countries/flags/us.svg'}/>
                            <Name sx={{ml:1}} component={'span'}>United States</Name>
                        </div>
                        <CancelButton>x</CancelButton>
@@ -62,7 +62,7 @@ export default function FavList(){
                    </FavItem>
                    <FavItem>
                        <div>
-                           <FavImg src={'/flags/br.svg'}/>
+                           <FavImg src={'./React_Countries/flags/br.svg'}/>
                            <Name sx={{ml:1}} component={'span'}>Brazil</Name>
                        </div>
                        <CancelButton>x</CancelButton>
@@ -71,7 +71,7 @@ export default function FavList(){
                    </FavItem>
                    <FavItem>
                        <div>
-                           <FavImg src={'/flags/de.svg'}/>
+                           <FavImg src={'./React_Countries/flags/de.svg'}/>
                            <Name sx={{ml:1}} component={'span'}>Germany</Name>
                        </div>
                        <CancelButton>x</CancelButton>

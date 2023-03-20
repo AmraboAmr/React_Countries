@@ -46,32 +46,32 @@ function App() {
                         <Grid item sm>
                             <Grid container spacing={8}>
                                 <Grid item xs={12} sm={6} md={4} >
-                                    <CountryCard name={'United States'} img={'/flags/us.svg'} population='323,947,000'
+                                    <CountryCard name={'United States'} img={'./React_Countries/flags/us.svg'} population='323,947,000'
                                                  region={'Americas'} capital={'Washingtonn.D.C'}/>
 
                                 </Grid>
 
                                 <Grid item xs={12} sm={6} md={4}>
-                                    <CountryCard name={'Brazil'} img={'/flags/br.svg'} population='323,947,000'
+                                    <CountryCard name={'Brazil'} img={'./React_Countries/flags/br.svg'} population='323,947,000'
                                                  region={'Americas'} capital={'Washingtonn.D.C'}/>
 
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={4} >
-                                    <CountryCard name={'Germany'} img={'/flags/de.svg'} population='323,947,000'
+                                    <CountryCard name={'Germany'} img={'./React_Countries/flags/de.svg'} population='323,947,000'
                                                  region={'Americas'} capital={'Washingtonn.D.C'}/>
 
                                 </Grid><Grid item xs={12} sm={6} md={4} >
-                                    <CountryCard name={'Afghanistan'} img={'/flags/af.svg'} population='323,947,000'
+                                    <CountryCard name={'Afghanistan'} img={'./React_Countries/flags/af.svg'} population='323,947,000'
                                                  region={'Americas'} capital={'Washingtonn.D.C'}/>
 
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={4} >
-                                    <CountryCard name={'Albania'} img={'/flags/al.svg'} population='323,947,000'
+                                    <CountryCard name={'Albania'} img={'./React_Countries/flags/al.svg'} population='323,947,000'
                                                  region={'Americas'} capital={'Washingtonn.D.C'}/>
 
                                 </Grid>
                                 <Grid item xs={12} sm={6} md={4} >
-                                    <CountryCard name={'Iceland'} img={'/flags/is.svg'} population='323,947,000'
+                                    <CountryCard name={'Iceland'} img={'./React_Countries/flags/is.svg'} population='323,947,000'
                                                  region={'Americas'} capital={'Washingtonn.D.C'}/>
 
                                 </Grid>
