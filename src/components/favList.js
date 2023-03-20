@@ -7,7 +7,7 @@ const FavDiv=styled(Box)`
   height: 100%;
   background-color: white;
   box-shadow: 0  .125rem .25rem rgba(0,0,0,.075);
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     display: none;
   }
   border-radius: 0.3rem;

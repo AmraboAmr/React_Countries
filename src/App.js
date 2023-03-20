@@ -43,7 +43,7 @@ function App() {
                             <FavList />
 
                         </Grid>
-                        <Grid item sm={9}>
+                        <Grid item sm>
                             <Grid container spacing={8}>
                                 <Grid item xs={12} sm={6} md={4} >
                                     <CountryCard name={'United States'} img={'/flags/us.svg'} population='323,947,000'
