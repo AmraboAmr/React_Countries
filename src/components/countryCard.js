@@ -3,8 +3,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {CardActionArea} from '@mui/material';
+import {CardActionArea, Link} from '@mui/material';
 import {styled} from "@mui/material/styles";
+import {BrowserRouter as Router} from "react-router-dom";
 const Country =styled(Card)`
     
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
@@ -43,7 +44,7 @@ const Light =styled(Typography)`
 export default function countryCard (props) {
     return (
         <Country>
-            <CardActionArea>
+            <Link  to="details">
                 <Flag
 
                     component="img"
@@ -51,8 +52,17 @@ export default function countryCard (props) {
                     image={props.img}
                     alt={props.name}
                 />
-            </CardActionArea>
+
+            </Link>
+
+
+
+
+
             <CardContent sx={{mx:1}}  >
+
+
+
 
 
 

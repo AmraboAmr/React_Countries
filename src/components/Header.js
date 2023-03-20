@@ -13,13 +13,13 @@ const AppHeader = styled(AppBar)`
 `;
 const SemiBold = styled(Typography)`
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size:1rem;
 
   cursor: pointer;
 `;
 const Bold = styled(Typography)`
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 `;
 export default function Header() {
     return (
