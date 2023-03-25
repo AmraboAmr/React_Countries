@@ -34,7 +34,7 @@ export default function Dropdown() {
                 sx={{ '.MuiOutlinedInput-notchedOutline': { border: 0 } }}
                 >
                 <MenuItem disabled value="">
-                    <em>Filter by</em>
+                   Filter by
                 </MenuItem>
                 <MenuItem value={'Favourites'}>Favourites</MenuItem>
                 <MenuItem value={'Africa'}>Africa</MenuItem>

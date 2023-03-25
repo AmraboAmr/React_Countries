@@ -1,16 +1,14 @@
 import {styled} from "@mui/material/styles";
 import Header from "./components/Header";
-import {Box, Button, Container, Grid, Link} from "@mui/material";
+import {Box, Button, Container, Grid} from "@mui/material";
+import { Link } from 'react-router-dom';
+
 import React from "react";
 import {BsArrowLeft} from "react-icons/bs"
 import DetailedFeatures from "./components/DetailedFeatures";
+import Flag from "./components/Flag";
 
-const Div=styled("div")`
-    width: 100%;
-  height: 30rem;
-  background-color: rebeccapurple;
 
-`;
 const StyledButton=styled(Button)`
     background-color: white;
   color: black;
@@ -27,19 +25,23 @@ export default function Details(){
         <>
             <Header/>
             <main>
-                <Container sx={{py:4}}>
-
-
+                <Container sx={{py:4 , mb:4}}>
+                    <Link className={"link"} to={"/"}>
                         <StyledButton sx={{px:3}} variant="contained"><Box sx={{px:1}} componetn={'span'}><BsArrowLeft/></Box>  Back</StyledButton>
+
+
+                    </Link>
+
+
 
 
                 </Container>
                 <Container>
                 <Grid container spacing={7}>
                     <Grid item sm={6}>
-                        <Div ></Div>
+                        <Flag img={'/React_Countries/flags/br.svg'} ></Flag>
                     </Grid>
-                    <Grid sx={{my:5}} item sm={6}>
+                    <Grid sx={{my:10}} item sm={6}>
                         <DetailedFeatures/>
 
                     </Grid>

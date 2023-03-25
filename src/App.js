@@ -20,14 +20,11 @@ function App() {
         <div className="App">
 
             <ThemeProvider theme={THEME}>
-                <Router>
-
-                <Routes>
-                <Route path="/React_Countries/" element={<Home />}>
-                    <Route path="/React_Countries/details" element={<Details />} />
-
-                </Route>
-                </Routes>
+                <Router basename={"/React_Countries"}>
+                    <Routes>
+                        <Route path="/" element={<Home/>} />
+                        <Route path="/details" element={<Details/>} />
+                    </Routes>
                 </Router>
 
 
