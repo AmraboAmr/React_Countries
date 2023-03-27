@@ -34,7 +34,7 @@ const FavStar=styled(BsFillStarFill)`
 color: lightgray;
   display: none;
   font-size: 1.4rem;
-  @media (max-width: ${breakpoints.sm}px) {
+  @media (max-width: ${breakpoints.lg}px) {
     display: inline-block;
   }
   

@@ -2,12 +2,13 @@ import * as React from 'react';
 import {Box, Container} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import {breakpoints} from "../constants";
 const FavDiv=styled(Box)`
   width: 100%;
   height: 100%;
   background-color: white;
   box-shadow: 0  .125rem .25rem rgba(0,0,0,.075);
-  @media (max-width: 900px) {
+  @media (max-width: ${breakpoints.lg}px) {
     display: none;
   }
   border-radius: 0.3rem;
