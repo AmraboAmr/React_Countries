@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import {Container, Grid} from "@mui/material";
+import {Box, Container, Grid} from "@mui/material";
 import SearchField from "./components/Search";
 import Dropdown from "./components/dropdown";
 import FavList from "./components/favList";
@@ -7,6 +7,7 @@ import CountryCard from "./components/countryCard";
 import React from "react";
 
 export default function Home() {
+    let dropdownItems=['Favourites','Africa','Americas','Asia','Europe','Oceania'];
     return (
         <>
             <Header/>
@@ -14,10 +15,10 @@ export default function Home() {
                 <Container sx={{my: 5}}>
                     <Grid spacing={3} container justifyContent='space-between'>
                         <Grid item xs={12} sm={6}>
-                            <SearchField/>
+                            <SearchField placeholder={'Search for a country...'}/>
                         </Grid>
                         <Grid item xs={6} sm={3} md={2}>
-                            <Dropdown/>
+                            <Dropdown title={'Filter by'} items={dropdownItems}/>
                         </Grid>
 
                     </Grid>
@@ -37,7 +38,7 @@ export default function Home() {
                         <Grid item sm>
                             <Grid container spacing={8}>
                                 <Grid item xs={12} sm={6} md={4}>
-                                    <CountryCard name={'United States'} img={'./React_Countries/flags/us.svg'}
+                                    <CountryCard name={'United States of America'} img={'./React_Countries/flags/us.svg'}
                                                  population='323,947,000'
                                                  region={'Americas'} capital={'Washingtonn.D.C'}/>
 
@@ -82,6 +83,9 @@ export default function Home() {
 
                     </Grid>
                 </Container>
+                <Box sx={{p: 10}}>
+
+                </Box>
             </main>
         </>
     );
