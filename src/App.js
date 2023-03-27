@@ -21,7 +21,7 @@ function App() {
             <ThemeProvider theme={THEME}>
                 <Router basename={"/React_Countries"}>
                     <Routes>
-                        <Route path="/" element={<Home/>} />
+                        <Route path="" element={<Home/>} />
                         <Route path="/details" element={<Details/>} />
                     </Routes>
                 </Router>
