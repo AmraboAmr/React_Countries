@@ -1,6 +1,6 @@
-export function removeFav(favoritesCode, index) {
+export function removeFav(favoritesCode, countryCode) {
     let favArray = [...favoritesCode];
-    favArray.splice(index, 1);
+    favArray.splice(favArray.indexOf(countryCode), 1);
     return favArray;
 }
 

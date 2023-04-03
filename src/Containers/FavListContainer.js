@@ -6,8 +6,8 @@ export default function FavListContainer({favCountries, favCodes, setFavCountrie
     function onDrop(countryCode) {
         setFavCountries(addFav(favCodes, countryCode));
     }
-    function handleRemoveFavorite (index){
-        setFavCountries( removeFav(favCodes,index));
+    function handleRemoveFavorite (code){
+        setFavCountries( removeFav(favCodes,code));
     }
 
     return (<FavList favorites={favCountries} onDrop={onDrop} handleRemoveFavorite={handleRemoveFavorite}/>)

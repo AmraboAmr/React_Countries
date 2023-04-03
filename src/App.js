@@ -2,9 +2,9 @@ import {createTheme, ThemeProvider} from '@mui/material/styles';
 import React from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Details from "./Details";
-import HomeContainer from "./Containers/HomeContainer";
 import {DndProvider} from "react-dnd";
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import Home from "./Home";
 
 const THEME = createTheme({
     typography: {
@@ -24,8 +24,8 @@ function App() {
             <ThemeProvider theme={THEME}>
                 <Router basename={"/React_Countries"}>
                     <Routes>
-                        <Route path="" element={<HomeContainer/>} />
-                        <Route path="/details" element={<Details/>} />
+                        <Route path="" Component={Home} />
+                        <Route path="/details/:id" Component={Details}  />
                     </Routes>
                 </Router>
 

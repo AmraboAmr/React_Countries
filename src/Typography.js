@@ -20,7 +20,7 @@ export const BorderCountry = styled('span')`
   text-align: center;
   width: max-content;
   border-radius: 0.3rem;
-  margin-right: 10px;
+  margin: 0 10px;
   height: max-content;
   
     

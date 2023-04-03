@@ -55,7 +55,7 @@ export function CountryCard({name, img, population, region, capital,code,isFav ,
         <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
             <Country>
 
-                <Link to="details">
+                <Link to={`details/${code}`}>
                     <Flag
 
                         component="img"

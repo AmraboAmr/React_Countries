@@ -7,8 +7,7 @@ export default function CountryCardContainer({name, img, population, region, cap
 
     function handleFavClick(countryCode) {
 
-
-            isFav ? setFavCode(removeFav(favCodes, favCodes.indexOf(countryCode))) : setFavCode(addFav(favCodes, countryCode));
+            isFav ? setFavCode(removeFav(favCodes, countryCode)) : setFavCode(addFav(favCodes, countryCode));
 
 
     }

@@ -8,7 +8,6 @@ import FilterDropdownContainer from "./Containers/FilterDropDownContainer";
 import FavListContainer from "./Containers/FavListContainer";
 import {FAV_KEY} from "./constants";
 import {getFromLocalStorage, setInLocalStorage} from "./Functionalties/LocalStorage";
-import CountriesContainer from "./Containers/CountriesContainer";
 import Countries from "./components/Countries";
 
 

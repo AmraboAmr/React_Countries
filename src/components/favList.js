@@ -4,6 +4,7 @@ import {styled} from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import {breakpoints} from "../constants";
 import {useDrop} from "react-dnd";
+import {Link} from 'react-router-dom';
 
 const FavDiv = styled(Box)`
   width: 100%;
@@ -68,13 +69,15 @@ export default function FavList({favorites, onDrop ,handleRemoveFavorite}) {
                 <Container sx={{pt: 1}}>
                     <Bold sx={{pb: 1}}>Favourites</Bold>
                     <Box componetn={'div'}>
-                        {favorites.map((favorite ,index) => (
+                        {favorites.map((favorite) => (
                             <FavItem>
                                 <div>
+                                    <Link to={`details/${favorite.cca3}`}>
                                     <FavImg src={favorite.flags.svg}/>
+                                    </Link>
                                     <Name sx={{ml: 1}} component={'span'}>{favorite.name.common}</Name>
                                 </div>
-                                <CancelButton onClick={() => handleRemoveFavorite(index)}>x</CancelButton>
+                                <CancelButton onClick={() => handleRemoveFavorite(favorite.cca3)}>x</CancelButton>
 
 
                             </FavItem>
