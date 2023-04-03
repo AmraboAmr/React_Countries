@@ -22,24 +22,24 @@ const THEME = createTheme({
 
 });
 
-export default function Dropdown(props) {
+export default function Dropdown({title,items,selectedRegion,handleRegionChange}) {
     return (
         <Drop>
             <ThemeProvider theme={THEME}>
-                <InputLabel id="select-label">{props.title}</InputLabel>
+                <InputLabel id="select-label">{title}</InputLabel>
                 <SelectStyled
                     labelId="select-label"
-                    label={props.title}
-                    value={""}
-                    displayEmpty
+                    label={title}
+                    value={selectedRegion}
                     inputProps={{'aria-label': 'Without label'}}
+                    onChange ={handleRegionChange}
 
                     sx={{'.MuiOutlinedInput-notchedOutline': {border: 0}}}
                 >
 
                     {
-                        props.items.map(item => (
-                            <MenuItem value={item}>{item}</MenuItem>
+                        items.map(item => (
+                            <MenuItem key={item||'all'} value={item}>{item||'No Filter'}</MenuItem>
 
                         ))
                     }

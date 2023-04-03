@@ -1,13 +1,39 @@
 import Header from "./components/Header";
 import {Box, Container, Grid} from "@mui/material";
-import SearchField from "./components/Search";
-import Dropdown from "./components/dropdown";
-import FavList from "./components/favList";
-import CountryCard from "./components/countryCard";
-import React from "react";
+import React, {useState, useEffect} from "react";
+import SearchContainer from "./Containers/SearchContainer";
+import {fetchCountry} from "./Functionalties/APIs";
+import {filterCountries} from "./Functionalties/Countries";
+import FilterDropdownContainer from "./Containers/FilterDropDownContainer";
+import FavListContainer from "./Containers/FavListContainer";
+import {FAV_KEY} from "./constants";
+import {getFromLocalStorage, setInLocalStorage} from "./Functionalties/LocalStorage";
+import CountriesContainer from "./Containers/CountriesContainer";
+import Countries from "./components/Countries";
+
+
 
 export default function Home() {
-    let dropdownItems=['Favourites','Africa','Americas','Asia','Europe','Oceania'];
+    const [searchValue, setSearchValue] = useState('');
+    const [filter, setFilter] = useState('');
+    const [countries, setCountries] = useState([]);
+    const [favCode, setFavCode] = useState(getFromLocalStorage(FAV_KEY) || []);
+      useEffect(() => {
+          setInLocalStorage(FAV_KEY, favCode);
+
+
+    }, [favCode])
+
+
+    useEffect(() => {
+        fetchCountry(searchValue)
+            .then((countries) => {
+                setCountries(countries);
+            });
+    }, [searchValue]);
+      let filteredCountries=filterCountries(countries, filter, favCode);
+    let favCountries =  favCode.map((code) =>filteredCountries .find((country) => country.cca3 === code)) ;
+    favCountries = favCountries.filter((value) => value !== undefined);
     return (
         <>
             <Header/>
@@ -15,14 +41,13 @@ export default function Home() {
                 <Container sx={{my: 5}}>
                     <Grid spacing={3} container justifyContent='space-between'>
                         <Grid item xs={12} sm={6}>
-                            <SearchField placeholder={'Search for a country...'}/>
+                            <SearchContainer setSearchValue={setSearchValue}/>
                         </Grid>
                         <Grid item xs={6} sm={3} md={2}>
-                            <Dropdown title={'Filter by'} items={dropdownItems}/>
+                            <FilterDropdownContainer setFilter={setFilter}/>
                         </Grid>
 
                     </Grid>
-
 
                 </Container>
 
@@ -32,51 +57,14 @@ export default function Home() {
                     <Grid container spacing={3}>
                         <Grid item md={3}>
 
-                            <FavList/>
+                            <FavListContainer
+                                favCountries={favCountries}
+                                favCodes={favCode}
+                                setFavCountries={setFavCode}/>
 
                         </Grid>
                         <Grid item sm>
-                            <Grid container spacing={8}>
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <CountryCard name={'United States of America'} img={'./React_Countries/flags/us.svg'}
-                                                 population='323,947,000'
-                                                 region={'Americas'} capital={'Washingtonn.D.C'}/>
-
-                                </Grid>
-
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <CountryCard name={'Brazil'} img={'./React_Countries/flags/br.svg'}
-                                                 population='323,947,000'
-                                                 region={'Americas'} capital={'Washingtonn.D.C'}/>
-
-                                </Grid>
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <CountryCard name={'Germany'} img={'./React_Countries/flags/de.svg'}
-                                                 population='323,947,000'
-                                                 region={'Americas'} capital={'Washingtonn.D.C'}/>
-
-                                </Grid><Grid item xs={12} sm={6} md={4}>
-                                <CountryCard name={'Afghanistan'} img={'./React_Countries/flags/af.svg'}
-                                             population='323,947,000'
-                                             region={'Americas'} capital={'Washingtonn.D.C'}/>
-
-                            </Grid>
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <CountryCard name={'Albania'} img={'./React_Countries/flags/al.svg'}
-                                                 population='323,947,000'
-                                                 region={'Americas'} capital={'Washingtonn.D.C'}/>
-
-                                </Grid>
-                                <Grid item xs={12} sm={6} md={4}>
-                                    <CountryCard name={'Iceland'} img={'./React_Countries/flags/is.svg'}
-                                                 population='323,947,000'
-                                                 region={'Americas'} capital={'Washingtonn.D.C'}/>
-
-                                </Grid>
-
-
-                            </Grid>
-
+                            <Countries countries={filteredCountries} favCodes={favCode} setFavCode={setFavCode}/>
 
                         </Grid>
 

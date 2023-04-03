@@ -11,11 +11,11 @@ const StyledTextField = styled(TextField)`
   border-radius: 0.3rem;
 
 `;
-export default function SearchField(props) {
+export default function SearchField({placeholder ,onInput}) {
     return (
         <>
 
-            <StyledTextField placeholder={props.placeholder} sx={{'.MuiOutlinedInput-notchedOutline': {border: 0}}}
+            <StyledTextField onInput={onInput} placeholder={placeholder} sx={{'.MuiOutlinedInput-notchedOutline': {border: 0}}}
                              InputProps={{
                                  startAdornment: (
                                      <InputAdornment sx={{mx: 2}} position="start">

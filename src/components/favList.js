@@ -3,38 +3,42 @@ import {Box, Container} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import {breakpoints} from "../constants";
-const FavDiv=styled(Box)`
+import {useDrop} from "react-dnd";
+
+const FavDiv = styled(Box)`
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 10;
   background-color: white;
-  box-shadow: 0  .125rem .25rem rgba(0,0,0,.075);
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
   @media (max-width: ${breakpoints.lg}px) {
     display: none;
   }
   border-radius: 0.3rem;
 
 `;
-const FavImg=styled("img")`
+const FavImg = styled("img")`
   width: 2rem;
   height: 20px;
-    border-radius: 0.3rem;
+  border-radius: 0.3rem;
   vertical-align: middle;
   object-fit: cover;
 `;
-const Bold =styled(Typography)`
-    font-weight: 800;
+const Bold = styled(Typography)`
+  font-weight: 800;
   font-size: 1.05rem;
 `;
-const Name =styled(Typography)`
-    font-size: 0.8rem;
-  font-weight:600 ;
+const Name = styled(Typography)`
+  font-size: 0.8rem;
+  font-weight: 600;
 `;
-const FavItem=styled(Box)`
-    display: flex;
+const FavItem = styled(Box)`
+  display: flex;
   justify-content: space-between;
-  margin:  0.4rem 0;
+  margin: 0.4rem 0;
 `;
-const CancelButton =styled("button")`
+const CancelButton = styled("button")`
   width: 19px;
   height: 19px;
   border: none;
@@ -46,51 +50,41 @@ const CancelButton =styled("button")`
   cursor: pointer;
 `;
 
-export default function FavList(){
+export default function FavList({favorites, onDrop ,handleRemoveFavorite}) {
+    const [{isOver}, drop] = useDrop({
+        accept: 'countryCard',
+        drop: (item) => onDrop(item.id),
+        collect: (monitor) => ({
+            isOver: monitor.isOver(),
+
+        }),
+    });
+
+    const borderStyle = isOver ? '2px #27ae60 dashed' : 'none';
+
     return (
-        <FavDiv>
-            <Container sx={{pt:1}}>
-                <Bold sx={{pb:1}} >Favourites</Bold>
-               <Box componetn={'div'}>
-                   <FavItem>
-                       <div>
-                           <FavImg src={'./React_Countries/flags/us.svg'}/>
-                           <Name sx={{ml:1}} component={'span'}>United States</Name>
-                       </div>
-                       <CancelButton>x</CancelButton>
+        <div ref={drop} style={{border: borderStyle , height:'100%'}}>
+            <FavDiv>
+                <Container sx={{pt: 1}}>
+                    <Bold sx={{pb: 1}}>Favourites</Bold>
+                    <Box componetn={'div'}>
+                        {favorites.map((favorite ,index) => (
+                            <FavItem>
+                                <div>
+                                    <FavImg src={favorite.flags.svg}/>
+                                    <Name sx={{ml: 1}} component={'span'}>{favorite.name.common}</Name>
+                                </div>
+                                <CancelButton onClick={() => handleRemoveFavorite(index)}>x</CancelButton>
 
 
-                   </FavItem>
-                   <FavItem>
-                       <div>
-                           <FavImg src={'./React_Countries/flags/br.svg'}/>
-                           <Name sx={{ml:1}} component={'span'}>Brazil</Name>
-                       </div>
-                       <CancelButton>x</CancelButton>
+                            </FavItem>
+                        ))}
+                    </Box>
 
 
-                   </FavItem>
-                   <FavItem>
-                       <div>
-                           <FavImg src={'./React_Countries/flags/de.svg'}/>
-                           <Name sx={{ml:1}} component={'span'}>Germany</Name>
-                       </div>
-                       <CancelButton>x</CancelButton>
+                </Container>
 
-
-                   </FavItem>
-
-
-
-               </Box>
-
-
-
-
-
-
-            </Container>
-
-        </FavDiv>
+            </FavDiv>
+        </div>
     );
 }
