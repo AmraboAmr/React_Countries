@@ -1,14 +1,14 @@
-import Header from "./components/Header";
+import Header from "../components/Header";
 import {Box, Container, Grid} from "@mui/material";
 import {Link} from 'react-router-dom';
 
 import React, {useEffect, useState} from "react";
 import {BsArrowLeft} from "react-icons/bs"
-import DetailedFeatures from "./components/DetailedFeatures";
-import Flag from "./components/Flag";
-import {StyledButton} from "./components/Button";
+import DetailedFeatures from "../components/DetailedFeatures";
+import Flag from "../components/Flag";
+import {StyledButton} from "../components/Button";
 import {useParams} from "react-router-dom";
-import {fetchCountryByCode} from "./Functionalties/APIs";
+import {fetchCountryByCode} from "../Functionalties/APIs";
 
 
 export default function Details() {

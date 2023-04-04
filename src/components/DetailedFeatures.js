@@ -1,6 +1,6 @@
 import {Grid, MenuItem} from "@mui/material";
 import React from "react";
-import {Bold, BorderCountry, FlexBox, SmallLight, CountryFeature} from "../Typography";
+import {Bold, BorderCountry, FlexBox, SmallLight, CountryFeature} from "./Typography";
 
 function Borders(props) {
     return <FlexBox>
@@ -44,7 +44,7 @@ export default function DetailedFeatures({
                         <CountryFeature>Population: <SmallLight>{population}</SmallLight></CountryFeature>
                         <CountryFeature>Region: <SmallLight>{region}</SmallLight></CountryFeature>
                         <CountryFeature>Sub Region: <SmallLight>{subRegion}</SmallLight></CountryFeature>
-                        <CountryFeature>Capital <SmallLight>{capital}</SmallLight></CountryFeature>
+                        <CountryFeature>Capital: <SmallLight>{capital}</SmallLight></CountryFeature>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <CountryFeature>Top Level Domain: <SmallLight> {TLD}</SmallLight></CountryFeature>

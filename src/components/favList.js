@@ -70,7 +70,7 @@ export default function FavList({favorites, onDrop ,handleRemoveFavorite}) {
                     <Bold sx={{pb: 1}}>Favourites</Bold>
                     <Box componetn={'div'}>
                         {favorites.map((favorite) => (
-                            <FavItem>
+                            <FavItem key={favorite.cca3}>
                                 <div>
                                     <Link to={`details/${favorite.cca3}`}>
                                     <FavImg src={favorite.flags.svg}/>

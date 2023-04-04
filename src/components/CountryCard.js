@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import {styled} from "@mui/material/styles";
 import {Link} from 'react-router-dom';
 import {breakpoints} from "../constants";
-import {SmallBold, SmallLight,} from "../Typography";
+import {SmallBold, SmallLight,} from "./Typography";
 import {BsFillStarFill} from "react-icons/bs"
 import {Box} from "@mui/material";
 import {useDrag} from 'react-dnd';
@@ -73,7 +73,7 @@ export function CountryCard({name, img, population, region, capital,code,isFav ,
                             {name}
                         </SmallBold>
                         <CardFeature> Population: <SmallLight component="span"
-                                                              color='text.secondary'>{population}</SmallLight></CardFeature>
+                                                              color='text.secondary'>{population.toLocaleString()}</SmallLight></CardFeature>
                         <CardFeature> Region: <SmallLight component="span"
                                                           color='text.secondary'>{region}</SmallLight></CardFeature>
 

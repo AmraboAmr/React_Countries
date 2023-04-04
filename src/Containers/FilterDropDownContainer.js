@@ -1,15 +1,14 @@
 import Dropdown from '../components/dropdown';
 
-function FilterDropdownContainer({setFilter}) {
+function FilterDropdownContainer({setFilter, filter}) {
     let dropdownItems = ['', 'Favourites', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
-    let selectedRegion;
+
     const handleRegionChange = (event) => {
-        selectedRegion = event.target.value;
-        setFilter(selectedRegion);
+        setFilter(event.target.value);
 
     };
 
-    return <Dropdown title={'Filter by'} items={dropdownItems} selectedRegion={selectedRegion}
+    return <Dropdown title={'Filter by'} items={dropdownItems} selectedRegion={filter}
                      handleRegionChange={handleRegionChange}/>;
 }
 

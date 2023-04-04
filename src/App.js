@@ -1,10 +1,10 @@
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import React from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Details from "./Details";
+import Details from "./Containers/Details";
 import {DndProvider} from "react-dnd";
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import Home from "./Home";
+import Home from "./Containers/Home";
 
 const THEME = createTheme({
     typography: {

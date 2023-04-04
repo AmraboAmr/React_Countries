@@ -15,15 +15,15 @@ export const SmallLight = styled("span")`
 `;
 export const BorderCountry = styled('span')`
   background-color: white;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
   padding: 0.5rem 1rem;
   text-align: center;
   width: max-content;
   border-radius: 0.3rem;
-  margin: 0 10px;
+  margin: 0 10px 10px;
   height: max-content;
-  
-    
+
+
 `;
 export const CountryFeature = styled(Typography)`
     font-weight: 600;
