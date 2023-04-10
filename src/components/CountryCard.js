@@ -10,13 +10,15 @@ import {SmallBold, SmallLight,} from "./Typography";
 import {BsFillStarFill} from "react-icons/bs"
 import {Box} from "@mui/material";
 import {useDrag} from 'react-dnd';
+import {useContext} from "react";
+import {DarkModeContext} from "../App";
+import {addFav, removeFav} from "../Functionalties/favorites";
 
 
 const Country = styled(Card)`
-  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+
   @media (max-width: ${breakpoints.sm}px) {
     height: 24rem;
-    margin: 0 1.5rem;
   }
 `;
 const Flag = styled(CardMedia)`
@@ -43,7 +45,17 @@ const FavStar = styled(BsFillStarFill)`
 
 `;
 
-export function CountryCard({name, img, population, region, capital,code,isFav ,handleFavClick}) {
+export function CountryCard({name, img, population, region, capital,code,favCodes ,setFavCode}) {
+    let isFav = favCodes.includes(code);
+
+    function handleFavClick(countryCode) {
+
+        isFav ? setFavCode(removeFav(favCodes, countryCode)) : setFavCode(addFav(favCodes, countryCode));
+
+
+    }
+
+    const { darkMode } = useContext(DarkModeContext);
     const [{isDragging}, drag] = useDrag({
         type: 'countryCard',
         item: {id: code},
@@ -52,8 +64,8 @@ export function CountryCard({name, img, population, region, capital,code,isFav ,
         }),
     });
     return (
-        <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
-            <Country>
+
+            <Country ref={drag} style={{opacity: isDragging ? 0.5 : 1}} className={darkMode?'darkE':'lightE'} >
 
                 <Link to={`details/${code}`}>
                     <Flag
@@ -89,6 +101,6 @@ export function CountryCard({name, img, population, region, capital,code,isFav ,
 
 
             </Country>
-        </div>
+
     );
 }

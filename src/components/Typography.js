@@ -14,8 +14,6 @@ export const SmallLight = styled("span")`
   font-size: 0.8rem;
 `;
 export const BorderCountry = styled('span')`
-  background-color: white;
-  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
   padding: 0.5rem 1rem;
   text-align: center;
   width: max-content;

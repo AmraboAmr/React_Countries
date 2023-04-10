@@ -1,20 +1,30 @@
-import {Grid, MenuItem} from "@mui/material";
-import React from "react";
+import {Grid} from "@mui/material";
+import React, {useContext} from "react";
 import {Bold, BorderCountry, FlexBox, SmallLight, CountryFeature} from "./Typography";
+import {DarkModeContext} from "../App";
+import {styled} from "@mui/material/styles";
 
-function Borders(props) {
+
+function Borders({borders, darkMode}) {
+
     return <FlexBox>
         <CountryFeature className={'borderCountriesTitle'}>Border Countries:</CountryFeature>
         {
-            props.borders.map((border) => (
+            borders.map((border) => (
 
-                <BorderCountry> <SmallLight>{border[0].name.common}</SmallLight></BorderCountry>
+
+                <BorderCountry className={darkMode?'darkE':'lightE'}  key={border[0].cca3}>
+                    <SmallLight>{border[0].name.common}</SmallLight></BorderCountry>
+
 
             ))
         }
     </FlexBox>;
 }
 
+const FontTheme = styled('div')`
+  color: ${({darkMode}) => (darkMode ? "white" : "black")};
+`;
 export default function DetailedFeatures({
                                              name,
                                              native,
@@ -28,9 +38,10 @@ export default function DetailedFeatures({
                                              borders
                                          }) {
 
+    const {darkMode} = useContext(DarkModeContext);
 
-    return (
-        <div className={'paddingDetailedFeatures'}>
+
+    return (<FontTheme darkMode={darkMode} className={'paddingDetailedFeatures'}>
             <Grid container direction={"column"}>
                 <Grid container spacing={4}>
 
@@ -55,11 +66,11 @@ export default function DetailedFeatures({
                 </Grid>
                 <Grid item xs={12} sx={{mt: 5}}>
 
-                    <Borders borders={borders}/>
+                    <Borders darkMode={darkMode} borders={borders}/>
 
 
                 </Grid>
             </Grid>
-        </div>
+        </FontTheme>
     );
 }

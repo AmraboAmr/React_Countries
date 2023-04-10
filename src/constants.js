@@ -6,4 +6,5 @@ export const breakpoints = {
     xl: 1200
 };
 export const FAV_KEY='fav';
+export const THEME ='theme';
 export const  DARK_KEY='dark-mode';

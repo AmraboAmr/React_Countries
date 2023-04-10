@@ -5,14 +5,17 @@ import Typography from "@mui/material/Typography";
 import {breakpoints} from "../constants";
 import {useDrop} from "react-dnd";
 import {Link} from 'react-router-dom';
+import {DarkModeContext} from "../App";
+import {useContext} from "react";
+import {addFav, removeFav} from "../Functionalties/favorites";
 
 const FavDiv = styled(Box)`
+  overflow: scroll;
+  
   width: 100%;
-  height: 100%;
+  height: 80vh;
   position: relative;
   z-index: 10;
-  background-color: white;
-  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
   @media (max-width: ${breakpoints.lg}px) {
     display: none;
   }
@@ -40,6 +43,8 @@ const FavItem = styled(Box)`
   margin: 0.4rem 0;
 `;
 const CancelButton = styled("button")`
+  background-color: ${({darkMode}) => (darkMode ? "#202c37" : "white")};
+  color: ${({darkMode}) => (darkMode ? "white" : "black")};
   width: 19px;
   height: 19px;
   border: none;
@@ -51,7 +56,15 @@ const CancelButton = styled("button")`
   cursor: pointer;
 `;
 
-export default function FavList({favorites, onDrop ,handleRemoveFavorite}) {
+export default function FavList({favCountries,favCodes, setFavCountries }) {
+    function onDrop(countryCode) {
+        setFavCountries(addFav(favCodes, countryCode));
+    }
+    function handleRemoveFavorite (code){
+        setFavCountries( removeFav(favCodes,code));
+    }
+
+    const {darkMode} =useContext(DarkModeContext);
     const [{isOver}, drop] = useDrop({
         accept: 'countryCard',
         drop: (item) => onDrop(item.id),
@@ -64,12 +77,12 @@ export default function FavList({favorites, onDrop ,handleRemoveFavorite}) {
     const borderStyle = isOver ? '2px #27ae60 dashed' : 'none';
 
     return (
-        <div ref={drop} style={{border: borderStyle , height:'100%'}}>
-            <FavDiv>
+        <div ref={drop} style={{border: borderStyle}}>
+            <FavDiv className={darkMode?'darkE':'lightE'}>
                 <Container sx={{pt: 1}}>
                     <Bold sx={{pb: 1}}>Favourites</Bold>
-                    <Box componetn={'div'}>
-                        {favorites.map((favorite) => (
+                    <Box>
+                        {favCountries.map((favorite) => (
                             <FavItem key={favorite.cca3}>
                                 <div>
                                     <Link to={`details/${favorite.cca3}`}>
@@ -77,7 +90,7 @@ export default function FavList({favorites, onDrop ,handleRemoveFavorite}) {
                                     </Link>
                                     <Name sx={{ml: 1}} component={'span'}>{favorite.name.common}</Name>
                                 </div>
-                                <CancelButton onClick={() => handleRemoveFavorite(favorite.cca3)}>x</CancelButton>
+                                <CancelButton darkMode={darkMode} onClick={() => handleRemoveFavorite(favorite.cca3)}>x</CancelButton>
 
 
                             </FavItem>

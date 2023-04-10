@@ -1,8 +1,16 @@
 body{
     margin: 0;
 }
+:root {
+    --main-bg-color: #fafafa;
+    --element-bg-color: white;
+    --text-color: black;
+    --shadow: 33, 37, 41, 0.075;
+
+}
 .link {
     text-decoration: none;
+
 }
 .paddingDetailedFeatures{
     padding: 2rem 0;
@@ -27,4 +35,48 @@ body{
     }
 
 
+}
+
+
+.darkE.MuiPaper-root{
+    background-color:#2b3945;
+    color:white;
+    box-shadow: 0 0.125rem 0.25rem rgba(17,18,45,0.02);
+}
+.lightE.MuiPaper-root {
+    background-color:white;
+    color:black;
+    box-shadow: 0 0.125rem 0.25rem rgba(33,37,41,0.075);
+}.darkE{
+    background-color:#2b3945;
+    color:white;
+    box-shadow: 0 0.125rem 0.25rem rgba(17,18,45,0.02);
+}
+ .darkE.MuiInputBase-input::placeholder  {
+     color: lightgray ;
+ }
+.lightE{
+    background-color:white;
+    color:black;
+    box-shadow: 0 0.125rem 0.25rem rgba(33,37,41,0.075);
+}
+
+.lightE.MuiInputBase-input::placeholder {
+    color: gray ;
+}
+.darkE.MuiButtonBase-root{
+    background-color:#2b3945;
+    color:white;
+    box-shadow: 0 0.125rem 0.25rem rgba(17,18,45,0.02);
+}
+.lightE.MuiButtonBase-root{
+    background-color:white;
+    color:black;
+    box-shadow: 0 0.125rem 0.25rem rgba(33,37,41,0.075);
+}
+.darkE.MuiButtonBase-root:hover{
+background-color: #2b3945;
+}
+.lightE.MuiButtonBase-root:hover{
+    background-color: #fafafa;
 }
